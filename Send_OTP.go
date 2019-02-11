@@ -15,7 +15,7 @@ func random(min int, max int) int {
 	return rand.Intn(max-min) + min
 }
 
-func main() {
+func SendOtp() string {
 	// Set account keys & information
 	accountSid := "AC380ea09dce91c893ff0890bf74a32451"
 	authToken := "64495615ce8f849021307b7731dac4c7"
@@ -62,4 +62,19 @@ func main() {
 	} else {
 		fmt.Println(resp.Status)
 	}
+	return randomNum
+}
+func main() {
+	OTP := SendOtp()
+	fmt.Println("otp is " + OTP)
+	fmt.Println("-----ENTER THE OTP-----")
+	var clint_otp string
+	fmt.Scanf("%s", &clint_otp)
+	if OTP != clint_otp {
+		fmt.Println("WRONG OTP")
+
+	} else {
+		fmt.Println("OTP VERIFYED")
+	}
+
 }
